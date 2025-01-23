@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Movie Industry Analytics (With Visualizations)</title>
+
+  <!-- D3 library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Correct CDN for d3-cloud -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+
+  <!-- Add Font Awesome for icon usage -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- Breadcrumbs tool bar -->
+
+<div id="page-hdr">
+  <table id="breadcrumbs">
+    <tr>
+      <td id="link-active">home</td>
+      <td><a href="about.html">about</a></td>
+    </tr>
+  </table>
+  <h1>Movie Data Analysis - IMBD Top 1000 Movies (1920-2020)</h1>
+  </div>
+</div>
+
+<!-- Main Content Table/Grid -->
+  <table id="dashboard">
+    <tr>
+      <th>TOP 10 MOVIES - USER VOTES</th>
+      <th>MOVIE INFORMATION</th>
+      <th>TOP 20 DIRECTORS GROSS EARNINGS</th>
+    </tr>
+  <tr>
+
+    <!-- Top Left Cell -->
+    <td width="420">
+      <div id="chart_top10Votes"></div>
+
+      <!-- JavaScript file -->
+      <script type="text/javascript" src="static/js/logic_top10Votes.js"></script>
+    
+      
+    </td>
+
+    <!-- Top Middle Cell -->
+    <td width="420">
+
+        <!-- Data Analysis Visualization #2 -->
+        <script type="text/javascript" src="static/js/logic_titleSearch.js"></script>
+
+        <div class="search-container">
+          <select id="movieDropdown" onchange="updateTextBox()">
+            <option value="">--Select a Movie--</option>
+          </select>
+          <!-- Font Awesome Search Icon -->
+          <i class="fas fa-search search-icon" onclick="resetFields()"></i>
+        </div>
+      
+        <!-- Text box to display selected movie's description (Overview) -->
+        <div class="description-container">
+          <textarea id="selectedMovie" placeholder="Description:"></textarea>
+        </div>
+      
+         <!-- Text boxes to display selected movie's details -->
+         <div class="details-container">
+          <div>
+            <label>Released Year:</label>
+            <input type="text" id="releasedYear" readonly><br>
+          </div>
+          <div>
+            <label>Runtime:</label>
+            <input type="text" id="runtime" readonly><br>
+          </div>
+          <div>
+            <label>IMDB Rating:</label>
+            <input type="text" id="imdbRating" readonly><br>
+          </div>
+          <div>
+            <label>Genre:</label>
+            <input type="text" id="genre" readonly><br>
+          </div>
+          <div>
+            <label>Director:</label>
+            <input type="text" id="director" readonly><br>
+          </div>
+          <div id="posterContainer" style="margin-top: 20px;"></div>
+        </div>
+    </td>
+
+    <!-- Top Right Cell -->
+    <td width="420">
+      <!-- Data Analysis Visualization #3 -->
+      <label for="director-select">Select a Director:</label>
+      <select id="director-select"></select> 
+      <div id="chart"></div>
+      
+      <!-- JavaScript file -->
+       <script type="text/javascript" src="static/js/logic_top20Directors.js"></script>
+    </td>
+  </tr>
+
+  <tr>
+    <th>TOP 10 MOVIES - IMDB RATING</th>
+    <th>GENRE WORD CLOUD</th>
+    <th>GENRE DISTRIBUTION</th>
+  </tr>
+
+  <tr>
+
+    <!-- Bottom Left Cell -->
+    <td width="420">
+
+      <!-- Data Analysis Visualization #4 -->
+      <div class="chart-container">
+        <!-- Bar chart for IMDb Ratings -->
+        <canvas id="imdbRatingsChart" height="500"></canvas>
+    </div>
+     
+    <!-- JavaScript file -->
+    <script type="text/javascript" src="static/js/logic_top10IMDB.js"></script>
+    
+    </td>
+
+    <!-- Bottom Middle Cell -->
+    <td width="420">
+        <!-- Data Analysis Visualization #5 -->
+        <div id="wordcloud"></div>
+
+        <!-- JavaScript file -->
+        <script type="text/javascript" src="static/js/logic_genreWC.js"></script>
+    </td>
+
+    <!-- Bottom Right Cell -->
+    <td width="420">
+
+      <!-- Data Analysis Visualization #6 -->
+      <div class="chart-container">
+          <!-- Pie chart for Genre Distribution -->
+          <canvas id="genreDistributionChart" height="500px"></canvas>
+      </div>
+       
+      <!-- JavaScript file -->
+      <script type="text/javascript" src="static/js/logic_genrePie.js"></script>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

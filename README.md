@@ -1,6 +1,6 @@
 # Movie Industry Analytics
 
-**Project 3 Deployment Link**: https://frankguerra-3.github.io/Project-3/
+**Project 3 Deployment Link**: https://njvoltin.github.io/IMDb_Dashboard/
 
 ## By Group 8 Team Members:
 - **Frank Guerra**
